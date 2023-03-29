@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://6q5qv72f1s6w"]
+
+[ext_resource type="Script" path="res://Obstaculo.gd" id="1_r48vk"]
+[ext_resource type="Texture2D" uid="uid://dxo16pi7adv7n" path="res://espinho.png" id="2_cxw5c"]
+
+[node name="Obstaculo" type="Area2D"]
+script = ExtResource("1_r48vk")
+
+[node name="Espinho" type="Sprite2D" parent="."]
+texture = ExtResource("2_cxw5c")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(28, 44, -28, 44, -28, -44, 28, -44)
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_Personagem_entered"]
