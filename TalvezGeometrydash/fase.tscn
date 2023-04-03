@@ -1,22 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq1xmjiremqff"]
+[gd_scene load_steps=9 format=3 uid="uid://bq1xmjiremqff"]
 
-[ext_resource type="Texture2D" uid="uid://b6h2fgpk511hd" path="res://icon.svg" id="1_dlndx"]
-[ext_resource type="PackedScene" uid="uid://bs5iw37v46lw0" path="res://chão.tscn" id="1_dw16g"]
 [ext_resource type="Script" path="res://fase.gd" id="1_gyqde"]
 [ext_resource type="Script" path="res://Personagem.gd" id="2_ogdyx"]
+[ext_resource type="Texture2D" uid="uid://brxgcop5d4ydk" path="res://kick.png" id="3_ws23n"]
+[ext_resource type="Texture2D" uid="uid://bkcdnek4d2gat" path="res://chão.png" id="4_cw2nc"]
+[ext_resource type="Texture2D" uid="uid://dxo16pi7adv7n" path="res://espinho.png" id="6_vx1hi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0gt7"]
 size = Vector2(81, 84)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7rub"]
+size = Vector2(2041, 86)
+
+[sub_resource type="GDScript" id="GDScript_qy3qf"]
+script/source = "extends Area2D
+
+func _on_Personagem_entered(body):
+	if \"Personagem\" in body.name:
+		get_tree().reload_current_scene()
+"
+
 [node name="Fase" type="Node2D"]
 position = Vector2(0, -7)
 script = ExtResource("1_gyqde")
-
-[node name="chão" parent="." instance=ExtResource("1_dw16g")]
-scale = Vector2(2, 1)
+metadata/_edit_vertical_guides_ = [-2306.0, 6900.0]
+metadata/_edit_horizontal_guides_ = [644.0, 446.0]
 
 [node name="Personagem" type="CharacterBody2D" parent="."]
-position = Vector2(62, 561)
+position = Vector2(151, -299)
 script = ExtResource("2_ogdyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Personagem"]
@@ -29,8 +40,160 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Icon" type="Sprite2D" parent="Personagem"]
-position = Vector2(-1.486, -32)
-scale = Vector2(0.734375, 0.796875)
-texture = ExtResource("1_dlndx")
+[node name="Sprite2D" type="Sprite2D" parent="Personagem"]
+position = Vector2(-2.25001, -31.5)
+scale = Vector2(0.410714, 0.377273)
+texture = ExtResource("3_ws23n")
+region_rect = Rect2(0, 0, 196, 220)
 metadata/_edit_lock_ = true
+
+[node name="chão" type="StaticBody2D" parent="."]
+position = Vector2(554, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chão"]
+position = Vector2(467.5, -33)
+shape = SubResource("RectangleShape2D_e7rub")
+metadata/_edit_lock_ = true
+
+[node name="Chão" type="Sprite2D" parent="chão/CollisionShape2D"]
+position = Vector2(1.5, 1)
+scale = Vector2(22.2065, 1)
+texture = ExtResource("4_cw2nc")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo" type="Area2D" parent="."]
+position = Vector2(450, -121)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo2" type="Area2D" parent="."]
+position = Vector2(1912, -118)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo2"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo2/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo3" type="Area2D" parent="."]
+position = Vector2(1803, -121)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo3"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo3/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo4" type="Area2D" parent="."]
+position = Vector2(1856, -120)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo4"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo4/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo5" type="Area2D" parent="."]
+position = Vector2(1530, -121)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo5"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo5/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo6" type="Area2D" parent="."]
+position = Vector2(1255, -120)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo6"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo6/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo7" type="Area2D" parent="."]
+position = Vector2(881, -120)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo7"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo7/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo8" type="Area2D" parent="."]
+position = Vector2(693, -118)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo8"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo8/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="Obstaculo" to="Obstaculo" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo2" to="Obstaculo2" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo3" to="Obstaculo3" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo4" to="Obstaculo4" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo5" to="Obstaculo5" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo6" to="Obstaculo6" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo7" to="Obstaculo7" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo8" to="Obstaculo8" method="_on_Personagem_entered"]
