@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq1xmjiremqff"]
+[gd_scene load_steps=12 format=3 uid="uid://bq1xmjiremqff"]
 
 [ext_resource type="Script" path="res://fase.gd" id="1_gyqde"]
+[ext_resource type="Texture2D" uid="uid://brijnd017ddd6" path="res://Fundo.jpg" id="2_lv6rt"]
 [ext_resource type="Script" path="res://Personagem.gd" id="2_ogdyx"]
+[ext_resource type="Texture2D" uid="uid://dodlnig1tmwje" path="res://Captura de tela 2023-04-25 214131.png" id="2_y77y5"]
+[ext_resource type="Texture2D" uid="uid://bok7txklvm8vh" path="res://fundo2.jpg" id="3_vacg4"]
 [ext_resource type="Texture2D" uid="uid://brxgcop5d4ydk" path="res://kick.png" id="3_ws23n"]
 [ext_resource type="Texture2D" uid="uid://bkcdnek4d2gat" path="res://chão.png" id="4_cw2nc"]
 [ext_resource type="Texture2D" uid="uid://dxo16pi7adv7n" path="res://espinho.png" id="6_vx1hi"]
@@ -10,7 +13,7 @@
 size = Vector2(81, 84)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7rub"]
-size = Vector2(2041, 86)
+size = Vector2(4092, 80)
 
 [sub_resource type="GDScript" id="GDScript_qy3qf"]
 script/source = "extends Area2D
@@ -25,6 +28,21 @@ position = Vector2(0, -7)
 script = ExtResource("1_gyqde")
 metadata/_edit_vertical_guides_ = [-2306.0, 6900.0]
 metadata/_edit_horizontal_guides_ = [644.0, 446.0]
+
+[node name="CapturaDeTela2023-04-25214131" type="Sprite2D" parent="."]
+position = Vector2(6219.03, 369)
+scale = Vector2(7.02837, 4.88312)
+texture = ExtResource("2_y77y5")
+
+[node name="Fundo2" type="Sprite2D" parent="."]
+position = Vector2(6381, -678)
+scale = Vector2(4.98, 1.68852)
+texture = ExtResource("3_vacg4")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(2214, -485)
+scale = Vector2(4.43673, 1)
+texture = ExtResource("2_lv6rt")
 
 [node name="Personagem" type="CharacterBody2D" parent="."]
 position = Vector2(151, -299)
@@ -48,7 +66,8 @@ region_rect = Rect2(0, 0, 196, 220)
 metadata/_edit_lock_ = true
 
 [node name="chão" type="StaticBody2D" parent="."]
-position = Vector2(554, -5)
+position = Vector2(1622, -9)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chão"]
 position = Vector2(467.5, -33)
@@ -56,8 +75,9 @@ shape = SubResource("RectangleShape2D_e7rub")
 metadata/_edit_lock_ = true
 
 [node name="Chão" type="Sprite2D" parent="chão/CollisionShape2D"]
+visible = false
 position = Vector2(1.5, 1)
-scale = Vector2(22.2065, 1)
+scale = Vector2(44.5435, 1)
 texture = ExtResource("4_cw2nc")
 metadata/_edit_lock_ = true
 
@@ -189,6 +209,934 @@ scale = Vector2(0.303864, 0.548387)
 texture = ExtResource("6_vx1hi")
 metadata/_edit_lock_ = true
 
+[node name="chão2" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(6440, 408)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape1d" type="CollisionShape2D" parent="chão2"]
+position = Vector2(-192, -42)
+shape = SubResource("RectangleShape2D_e7rub")
+metadata/_edit_lock_ = true
+
+[node name="Chão" type="Sprite2D" parent="chão2/CollisionShape1d"]
+position = Vector2(-2.50049, 1)
+scale = Vector2(44.4674, 1)
+texture = ExtResource("4_cw2nc")
+metadata/_edit_lock_ = true
+
+[node name="chão3" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(5890, -261)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chão3"]
+position = Vector2(467.5, -33)
+shape = SubResource("RectangleShape2D_e7rub")
+metadata/_edit_lock_ = true
+
+[node name="Chão" type="Sprite2D" parent="chão3/CollisionShape2D"]
+position = Vector2(-0.500011, 1)
+scale = Vector2(44.587, 1)
+texture = ExtResource("4_cw2nc")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo9" type="Area2D" parent="."]
+position = Vector2(3788, -103)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo9"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo9/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo10" type="Area2D" parent="."]
+position = Vector2(3725, -100)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo10"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo10/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo11" type="Area2D" parent="."]
+position = Vector2(2679, -106)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo11"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo11/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo12" type="Area2D" parent="."]
+position = Vector2(3471, -103)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo12"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo12/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo13" type="Area2D" parent="."]
+position = Vector2(3200, -104)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo13"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo13/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo14" type="Area2D" parent="."]
+position = Vector2(3126, -106)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo14"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo14/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo15" type="Area2D" parent="."]
+position = Vector2(2356, -117)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo15"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo15/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo16" type="Area2D" parent="."]
+position = Vector2(2279, -118)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo16"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo16/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo17" type="Area2D" parent="."]
+position = Vector2(450, -121)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo17"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo17/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo18" type="Area2D" parent="."]
+position = Vector2(3851, -103)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo18"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo18/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo19" type="Area2D" parent="."]
+position = Vector2(5023, -355)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo19"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo19/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo20" type="Area2D" parent="."]
+position = Vector2(4687, -361)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo20"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo20/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo21" type="Area2D" parent="."]
+position = Vector2(4621, -361)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo21"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo21/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo22" type="Area2D" parent="."]
+position = Vector2(4993, 302)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo22"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo22/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo23" type="Area2D" parent="."]
+position = Vector2(4921, 302)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo23"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo23/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo24" type="Area2D" parent="."]
+position = Vector2(4609, 302)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo24"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo24/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo25" type="Area2D" parent="."]
+position = Vector2(5688, 305)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo25"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo25/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo26" type="Area2D" parent="."]
+position = Vector2(5359, 299)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo26"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo26/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo27" type="Area2D" parent="."]
+position = Vector2(5290, 302)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo27"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo27/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo28" type="Area2D" parent="."]
+position = Vector2(5056, 302)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo28"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo28/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo29" type="Area2D" parent="."]
+position = Vector2(5301, -363)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo29"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo29/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo30" type="Area2D" parent="."]
+position = Vector2(5874, 305)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo30"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo30/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo31" type="Area2D" parent="."]
+position = Vector2(5811, 302)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo31"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo31/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo32" type="Area2D" parent="."]
+position = Vector2(5751, 305)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo32"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo32/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo33" type="Area2D" parent="."]
+position = Vector2(5610, -357)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo33"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo33/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo34" type="Area2D" parent="."]
+position = Vector2(6270, 302)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo34"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo34/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo35" type="Area2D" parent="."]
+position = Vector2(6210, 302)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo35"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo35/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo36" type="Area2D" parent="."]
+position = Vector2(5682, -357)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo36"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo36/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo37" type="Area2D" parent="."]
+position = Vector2(5985, -357)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo37"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo37/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo38" type="Area2D" parent="."]
+position = Vector2(7007, 314)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo38"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo38/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo39" type="Area2D" parent="."]
+position = Vector2(6944, 311)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo39"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo39/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo40" type="Area2D" parent="."]
+position = Vector2(6681, 302)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo40"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo40/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo41" type="Area2D" parent="."]
+position = Vector2(6618, 299)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo41"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo41/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo42" type="Area2D" parent="."]
+position = Vector2(6546, 299)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo42"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo42/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo43" type="Area2D" parent="."]
+position = Vector2(6827, -351)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo43"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo43/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo44" type="Area2D" parent="."]
+position = Vector2(6590, -354)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo44"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo44/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo45" type="Area2D" parent="."]
+position = Vector2(6321, -357)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo45"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo45/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo46" type="Area2D" parent="."]
+position = Vector2(6255, -357)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo46"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo46/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo47" type="Area2D" parent="."]
+position = Vector2(7208, -357)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo47"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo47/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo48" type="Area2D" parent="."]
+position = Vector2(6950, -351)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo48"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo48/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo49" type="Area2D" parent="."]
+position = Vector2(6887, -351)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo49"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo49/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo50" type="Area2D" parent="."]
+position = Vector2(8008, -351)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo50"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo50/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo51" type="Area2D" parent="."]
+position = Vector2(7592, 317)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo51"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo51/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo52" type="Area2D" parent="."]
+position = Vector2(7532, 318)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo52"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo52/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo53" type="Area2D" parent="."]
+position = Vector2(7469, 317)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo53"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo53/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo54" type="Area2D" parent="."]
+position = Vector2(7259, 311)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo54"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo54/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo55" type="Area2D" parent="."]
+position = Vector2(7756, -348)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo55"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo55/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo56" type="Area2D" parent="."]
+position = Vector2(7699, -348)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo56"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo56/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo57" type="Area2D" parent="."]
+position = Vector2(7433, -351)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo57"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo57/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo58" type="Area2D" parent="."]
+position = Vector2(7780, 320)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo58"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo58/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo59" type="Area2D" parent="."]
+position = Vector2(8276, -353)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo59"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo59/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo60" type="Area2D" parent="."]
+position = Vector2(8212, -354)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo60"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo60/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo61" type="Area2D" parent="."]
+position = Vector2(7840, 319)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo61"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo61/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo62" type="Area2D" parent="."]
+position = Vector2(8204, 315)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo62"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo62/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo63" type="Area2D" parent="."]
+position = Vector2(8060, 315)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo63"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo63/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
+[node name="Obstaculo64" type="Area2D" parent="."]
+position = Vector2(7997, 318)
+script = SubResource("GDScript_qy3qf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstaculo64"]
+position = Vector2(-8.00003, 12)
+scale = Vector2(3.2413, 1.67877)
+polygon = PackedVector2Array(-6.02612, 12.2839, 3, -34, 11.598, 12.2839)
+metadata/_edit_lock_ = true
+
+[node name="Espinho" type="Sprite2D" parent="Obstaculo64/CollisionPolygon2D"]
+position = Vector2(2.77664, -7.74376)
+scale = Vector2(0.303864, 0.548387)
+texture = ExtResource("6_vx1hi")
+metadata/_edit_lock_ = true
+
 [connection signal="body_entered" from="Obstaculo" to="Obstaculo" method="_on_Personagem_entered"]
 [connection signal="body_entered" from="Obstaculo2" to="Obstaculo2" method="_on_Personagem_entered"]
 [connection signal="body_entered" from="Obstaculo3" to="Obstaculo3" method="_on_Personagem_entered"]
@@ -197,3 +1145,59 @@ metadata/_edit_lock_ = true
 [connection signal="body_entered" from="Obstaculo6" to="Obstaculo6" method="_on_Personagem_entered"]
 [connection signal="body_entered" from="Obstaculo7" to="Obstaculo7" method="_on_Personagem_entered"]
 [connection signal="body_entered" from="Obstaculo8" to="Obstaculo8" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo9" to="Obstaculo9" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo10" to="Obstaculo10" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo11" to="Obstaculo11" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo12" to="Obstaculo12" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo13" to="Obstaculo13" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo14" to="Obstaculo14" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo15" to="Obstaculo15" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo16" to="Obstaculo16" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo17" to="Obstaculo17" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo18" to="Obstaculo18" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo19" to="Obstaculo19" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo20" to="Obstaculo20" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo21" to="Obstaculo21" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo22" to="Obstaculo22" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo23" to="Obstaculo23" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo24" to="Obstaculo24" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo25" to="Obstaculo25" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo26" to="Obstaculo26" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo27" to="Obstaculo27" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo28" to="Obstaculo28" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo29" to="Obstaculo29" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo30" to="Obstaculo30" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo31" to="Obstaculo31" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo32" to="Obstaculo32" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo33" to="Obstaculo33" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo34" to="Obstaculo34" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo35" to="Obstaculo35" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo36" to="Obstaculo36" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo37" to="Obstaculo37" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo38" to="Obstaculo38" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo39" to="Obstaculo39" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo40" to="Obstaculo40" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo41" to="Obstaculo41" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo42" to="Obstaculo42" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo43" to="Obstaculo43" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo44" to="Obstaculo44" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo45" to="Obstaculo45" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo46" to="Obstaculo46" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo47" to="Obstaculo47" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo48" to="Obstaculo48" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo49" to="Obstaculo49" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo50" to="Obstaculo50" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo51" to="Obstaculo51" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo52" to="Obstaculo52" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo53" to="Obstaculo53" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo54" to="Obstaculo54" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo55" to="Obstaculo55" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo56" to="Obstaculo56" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo57" to="Obstaculo57" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo58" to="Obstaculo58" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo59" to="Obstaculo59" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo60" to="Obstaculo60" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo61" to="Obstaculo61" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo62" to="Obstaculo62" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo63" to="Obstaculo63" method="_on_Personagem_entered"]
+[connection signal="body_entered" from="Obstaculo64" to="Obstaculo64" method="_on_Personagem_entered"]
